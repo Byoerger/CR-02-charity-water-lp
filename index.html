@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Charity: Water - Fund Clean Water</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>charity: water</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -11,7 +11,8 @@
     <img src="https://i.postimg.cc/0jGmQy53/Screenshot-2025-07-03-203700.png" alt="charity: water logo" />
   </header>
 
-  <div class="container">
+  <!-- Main Content -->
+  <div class="container" id="main-content">
     <div class="left">
       <h1 class="headline">
         See Your Impact<br />Flow Into Real <span>Change</span>
@@ -27,7 +28,7 @@
 
           <div class="pipe-and-button">
             <img src="https://i.postimg.cc/NFQVLL72/Screenshot-2025-07-03-204240.png" alt="Water pipe" class="pipe-image" />
-            <a href="#" class="button">Fund a Water Project</a>
+            <a href="#" class="button" onclick="showDonateScreen()">Fund a Water Project</a>
           </div>
         </div>
       </div>
@@ -41,5 +42,34 @@
       <img src="https://d35lvrk9fb4ftj.cloudfront.net/eyJidWNrZXQiOiJkcm9wbWFyayIsImtleSI6IjUyMDQzLzFiOTA2MDZmZTg2OTU4NWFhNGE3M2ZlZjJkNTgyNzQzNTQ0Yzg1Mzk4ZjcyNWZkOTQ1N2FhY2I2MDAwNmFhMzIvcHJldmlldy8wMjA3X0V0aGlvcGlhXzIwMTlfQ0ctLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NjAwLCJoZWlnaHQiOjYwMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfX19" alt="Well drilling team" class="well-image" />
     </div> <!-- close right -->
   </div> <!-- close container -->
+
+  <!-- Donation Screen (Hidden Initially) -->
+  <div id="donate-screen" style="display: none; text-align: center; padding: 60px 20px;">
+    <h2>Make a Donation</h2>
+    <p>Enter an amount you'd like to give:</p>
+    <form onsubmit="event.preventDefault(); alert('Thank you for your donation!');">
+      <input type="number" placeholder="$ Amount" required
+        style="padding: 10px; font-size: 1rem; margin: 10px; border-radius: 6px; border: 1px solid #ccc;" />
+      <br />
+      <button type="submit"
+        style="padding: 10px 20px; font-size: 1rem; border: none; border-radius: 6px; background-color: #f4c542; font-weight: bold;">
+        Donate Now
+      </button>
+    </form>
+    <br />
+    <button onclick="goBack()" style="margin-top: 20px; background: none; border: none; color: #0077cc; text-decoration: underline; cursor: pointer;">Back</button>
+  </div>
+
+  <script>
+    function showDonateScreen() {
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('donate-screen').style.display = 'block';
+    }
+
+    function goBack() {
+      document.getElementById('donate-screen').style.display = 'none';
+      document.getElementById('main-content').style.display = 'flex';
+    }
+  </script>
 </body>
 </html>
